@@ -4,7 +4,7 @@ import {Task} from "../entities/task.entity";
 
 export const TaskDataSource = new DataSource({
       type: 'postgres',
-      host: 'db',
+      host: 'localhost',
       port: 5432,
       username: 'postgres',
       password: '1111',
