@@ -1,10 +1,10 @@
 import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} from "typeorm";
 
-
-
+//this is task entity
 @Entity()
 
 export class Task {
+
       @PrimaryGeneratedColumn()
       id!: number;
 
