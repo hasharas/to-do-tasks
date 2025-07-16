@@ -51,6 +51,15 @@
   border-radius: 5px;
 }
 
+.form textarea {
+  width: 90%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
 .form button {
   padding: 10px 20px;
   background-color: #0077cc;

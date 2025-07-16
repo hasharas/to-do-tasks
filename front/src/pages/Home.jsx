@@ -19,10 +19,14 @@ const Home = () => {
 
                                     <div>
                                           <p>Description</p>
-                                          <input
+                                          <textarea
                                                 type="text"
                                                 placeholder='e.g., Milk, eggs, bread for the week'
-                                                required />
+                                                required >
+
+                                          </textarea>
+
+
                                     </div>
                                     <button>
                                           Add Task
