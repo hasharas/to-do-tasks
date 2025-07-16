@@ -3,7 +3,7 @@ version: "3.8"
 services:
   db:
     image: postgres:15
-    container_name: task2_db
+    container_name: tasks2_db
     restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -15,9 +15,11 @@ services:
       - task2_db_data:/var/lib/postgresql/data
 
   backend:
+    image: task-backend
+    container_name: task_backend
     build: ./back
     ports:
-      - "8000:8000"
+      - "5000:5000"
     depends_on:
       - db
     volumes:
