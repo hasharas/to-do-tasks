@@ -1,7 +1,7 @@
 import app from "./app";
 import {TaskDataSource} from "./db/data-source";
 
-
+//connect to the database and start the server
 const PORT = 5000;
 
 const startServer = async () => {
@@ -14,7 +14,7 @@ const startServer = async () => {
             });
       } catch (error) {
             console.error("Error connecting to the database:", error);
-            // Exit the process if failure
+            // Exit the process if failure once 
             process.exit(1);
       }
 };

@@ -1,7 +1,7 @@
 import {DataSource} from "typeorm";
 import {Task} from "../entities/task.entity";
 
-
+//databace connection
 export const TaskDataSource = new DataSource({
       type: 'postgres',
       host: 'localhost',
