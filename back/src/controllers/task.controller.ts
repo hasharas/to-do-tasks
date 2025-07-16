@@ -15,3 +15,9 @@ export const getTasks = async (_req: Request, res: Response) => {
 }
 
 //done task
+
+export const doneTask = async (req: Request, res: Response) => {
+      const id = parseInt(req.params.id);
+      await TaskService.doneTask(id);
+      res.sendStatus(204);
+}

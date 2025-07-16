@@ -17,3 +17,9 @@ export const getLastTasks = async () => {
             take: 5
       });
 }
+
+
+export const doneTask = async (id: number) => {
+      await repo.update(id, {isCompleted: true});
+
+};
