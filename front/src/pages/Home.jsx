@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import TaskCard from '../components/TaskCard';
 
 const Home = () => {
       return (
@@ -37,6 +38,7 @@ const Home = () => {
                         </div>
                         <div className='home-content-right'>
                               <h3 className=''>Recent Tasks</h3>
+                              <TaskCard />
                         </div>
                   </div>
             </div>
