@@ -8,7 +8,7 @@ export const createTask = async (title: string, description: string) => {
       return await repo.save(task);
 };
 
-export const getAllTasks = async () => {
+export const getLastTasks = async () => {
       return await repo.find({
             where: {isCompleted: false},
             order: {
