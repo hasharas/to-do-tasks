@@ -18,6 +18,12 @@ class TaskService extends HttpService {
             });
 
       }
+      async markDone(id) {
+            return this.sendRequest({
+                  method: 'PATCH',
+                  url: `${URL.BASE_URL}/tasks/${id}`,
+            });
+      }
 }
 
 const taskService = new TaskService();
