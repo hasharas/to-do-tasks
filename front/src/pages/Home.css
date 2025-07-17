@@ -49,6 +49,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: small;
 }
 
 .form textarea {
@@ -58,6 +59,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   resize: none;
+  font-family: Arial, sans-serif;
+  font-size: small;
 }
 
 .form button {

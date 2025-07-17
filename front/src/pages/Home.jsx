@@ -1,4 +1,3 @@
-import React from 'react';
 import './Home.css';
 import TaskCard from '../components/TaskCard';
 
@@ -11,7 +10,7 @@ const Home = () => {
                               <h3 className=''>Add Task</h3>
                               <form className='form' action="">
                                     <div>
-                                          <p>Title</p>
+                                          <p>Title *</p>
                                           <input
                                                 type="text"
                                                 placeholder='e.g., Buy groceries'
@@ -19,14 +18,13 @@ const Home = () => {
                                     </div>
 
                                     <div>
-                                          <p>Description</p>
+                                          <p>Description *</p>
                                           <textarea
                                                 type="text"
                                                 placeholder='e.g., Milk, eggs, bread for the week'
                                                 required >
 
                                           </textarea>
-
 
                                     </div>
                                     <button>
@@ -38,6 +36,7 @@ const Home = () => {
                         </div>
                         <div className='home-content-right'>
                               <h3 className=''>Recent Tasks</h3>
+                              <TaskCard />
                               <TaskCard />
                         </div>
                   </div>
