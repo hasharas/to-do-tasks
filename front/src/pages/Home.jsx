@@ -1,19 +1,33 @@
 import './Home.css';
 import TaskCard from '../components/TaskCard';
 import taskService from '../services/TaskService';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
 
       const [title, setTitle] = useState('');
-      const [task, setTask] = useState('');
+      const [tasks, setTasks] = useState('');
       const [description, setDescription] = useState('');
 
 
       const fetchTask = async () => {
             const data = await taskService.getTasks();
+            setTasks(data);
 
       }
+
+      const handleSubmit = async (e) => {
+            e.preventDefault();
+            await taskService.createTask({ title, description });
+            setTitle('');
+            setDescription('');
+            fetchTask();
+            alert('task add succeses..!')
+      };
+
+      useEffect(() => {
+            fetchTask();
+      }, [])
 
       return (
             <div className='home'>
@@ -21,30 +35,31 @@ const Home = () => {
                   <div className='home-content'>
                         <div className='home-content-left'>
                               <h3 className=''>Add Task</h3>
-                              <form className='form' onSubmit='' action="">
+                              <form className='form' onSubmit={handleSubmit} action="">
                                     <div>
                                           <p>Title *</p>
                                           <input
-                                                value=''
+                                                value={title}
+                                                onChange={e => setTitle(e.target.value)}
                                                 type="text"
                                                 placeholder='e.g., Buy groceries'
                                                 required
-                                                onChange='' />
+                                          />
                                     </div>
 
                                     <div>
                                           <p>Description *</p>
                                           <textarea
-                                                value=''
+                                                value={description}
+                                                onChange={e => setDescription(e.target.value)}
                                                 type="text"
                                                 placeholder='e.g., Milk, eggs, bread for the week'
-                                                onChange=''
                                                 required >
 
                                           </textarea>
 
                                     </div>
-                                    <button>
+                                    <button type='submit'>
                                           Add Task
                                     </button>
                               </form>

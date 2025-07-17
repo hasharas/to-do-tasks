@@ -3,12 +3,11 @@ import axios from 'axios';
 class HttpService {
       constructor() {
             this.service = axios.create();
-            this.service.interceptors.responce.use(
+            this.service.interceptors.response.use(
                   this.handleSuccess,
                   this.handleError
             );
       }
-
 
       sendRequest = async (config) => {
             return this.service.request(config);
