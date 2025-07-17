@@ -1,16 +1,16 @@
 
 import './TaskCard.css';
 
-const TaskCard = () => {
+const TaskCard = ({ task, onDone }) => {
       return (
             <div className='task-card'>
                   <div className='task-content'>
                         <div className='task-title'>
-                              test 1
+                              {task.title}
                         </div>
-                        <div className='task-desc'>complete this task tommorow</div>
+                        <div className='task-desc'>{task.description}</div>
                   </div>
-                  <button className='done-btn' >
+                  <button className='done-btn' onClick={() => onDone(task.id)} >
                         Done
                   </button>
             </div>

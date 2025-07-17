@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react';
 const Home = () => {
 
       const [title, setTitle] = useState('');
-      const [tasks, setTasks] = useState('');
+      const [tasks, setTasks] = useState([]);
       const [description, setDescription] = useState('');
 
 
       const fetchTask = async () => {
+
             const data = await taskService.getTasks();
+            console.log('Fetched tasks:', data);
             setTasks(data);
 
       }
@@ -23,6 +25,11 @@ const Home = () => {
             setDescription('');
             fetchTask();
             alert('task add succeses..!')
+      };
+
+      const handleDone = async (id) => {
+            await taskService.markDone(id);
+            fetchTask();
       };
 
       useEffect(() => {
@@ -55,7 +62,6 @@ const Home = () => {
                                                 type="text"
                                                 placeholder='e.g., Milk, eggs, bread for the week'
                                                 required >
-
                                           </textarea>
 
                                     </div>
@@ -64,12 +70,14 @@ const Home = () => {
                                     </button>
                               </form>
 
-
                         </div>
                         <div className='home-content-right'>
                               <h3 className=''>Recent Tasks</h3>
-                              <TaskCard />
-                              <TaskCard />
+
+                              {Array.isArray(tasks) && tasks.map(task => (
+                                    <TaskCard key={task.id} task={task} onDone={handleDone} />
+                              ))}
+
                         </div>
                   </div>
             </div>

@@ -50,6 +50,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: small;
+  margin-left: 0;
 }
 
 .form textarea {
@@ -97,4 +98,37 @@
   font-size: 1.8rem;
   margin-bottom: 20px;
   color: #0077cc;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 10px;
+  }
+
+  .home-h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .home-content {
+    flex-direction: column;
+    box-shadow: none;
+    border-radius: 10px;
+  }
+
+  .home-content-left,
+  .home-content-right {
+    padding: 20px;
+    border-right: none !important;
+  }
+
+  .form input,
+  .form textarea {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .home-content::before {
+    display: none;
+  }
 }
