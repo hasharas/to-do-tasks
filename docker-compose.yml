@@ -31,5 +31,15 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
 
+  frontend:
+    image: task-frontend
+    container_name: task_frontend
+    build: ./front
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
 volumes:
   task2_db_data:
