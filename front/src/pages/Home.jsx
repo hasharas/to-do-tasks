@@ -1,27 +1,44 @@
 import './Home.css';
 import TaskCard from '../components/TaskCard';
+import taskService from '../services/TaskService';
+import { useState } from 'react';
 
 const Home = () => {
+
+      const [title, setTitle] = useState('');
+      const [task, setTask] = useState('');
+      const [description, setDescription] = useState('');
+
+
+      const fetchTask = async () => {
+            const data = await taskService.getTasks();
+
+      }
+
       return (
             <div className='home'>
                   <h1 className='home-h1'>To-Do Task Application</h1>
                   <div className='home-content'>
                         <div className='home-content-left'>
                               <h3 className=''>Add Task</h3>
-                              <form className='form' action="">
+                              <form className='form' onSubmit='' action="">
                                     <div>
                                           <p>Title *</p>
                                           <input
+                                                value=''
                                                 type="text"
                                                 placeholder='e.g., Buy groceries'
-                                                required />
+                                                required
+                                                onChange='' />
                                     </div>
 
                                     <div>
                                           <p>Description *</p>
                                           <textarea
+                                                value=''
                                                 type="text"
                                                 placeholder='e.g., Milk, eggs, bread for the week'
+                                                onChange=''
                                                 required >
 
                                           </textarea>
